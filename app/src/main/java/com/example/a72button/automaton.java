@@ -1,9 +1,6 @@
 package com.example.a72button;
 
 import androidx.annotation.NonNull;
-
-import org.w3c.dom.NodeList;
-
 public class automaton {    String id;
     String name;
     String city;
