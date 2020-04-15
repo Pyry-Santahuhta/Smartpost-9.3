@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Smartpost quick find</string>
+    <string name="write_what_to_say">Write what to say:</string>
+    <string name="choose_a_smartpost_location">Choose a SmartPost location:</string>
+    <string name="exact_time_for_express_out">Exact time for express out</string>
+    <string name="valitse_smartpost_kohde">Valitse SmartPost kohde</string>
+    <string name="t_sm_llinen_extract_aika_ee_arvoille">Täsmällinen extract aika EE arvoille</string>
+    <string name="tarkka_noutoaika_vain_ee">Tarkka noutoaika (Vain EE)</string>
+</resources>

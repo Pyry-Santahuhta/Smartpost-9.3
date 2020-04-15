@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/weekday"
+        android:layout_width="38dp"
+        android:layout_height="12dp"
+        android:layout_above="@+id/weekDaySpinner"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="101dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_toStartOf="@+id/locationSpinner"
+        android:layout_toLeftOf="@+id/locationSpinner"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/automatsSpinner"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="201dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <Spinner
+        android:id="@+id/locationSpinner"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/automatsSpinner"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.076"
+        tools:layout_editor_absoluteX="229dp" />
+
+    <TextView
+        android:id="@+id/spinnerDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/valitse_smartpost_kohde"
+        android:textColor="#E900154A"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:fontFamily="sans-serif-condensed-light"
+        app:layout_constraintBottom_toTopOf="@+id/locationSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/timeDescription"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/weekday"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="257dp"
+        android:layout_marginRight="257dp"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/tarkka_noutoaika_vain_ee"
+        android:textColor="#E900154A"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:fontFamily="sans-serif-condensed-light"
+        app:layout_constraintBottom_toTopOf="@+id/locationSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/timePickerButton"
+        android:layout_width="60dp"
+        android:layout_height="37dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="122dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:layout_toStartOf="@+id/weekDaySpinner"
+        android:layout_toLeftOf="@+id/weekDaySpinner" />
+
+    <Spinner
+        android:id="@+id/weekDaySpinner"
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="131dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_toStartOf="@+id/locationSpinner"
+        android:layout_toLeftOf="@+id/locationSpinner" />
+
+    <TextView
+        android:id="@+id/console"
+        android:layout_width="318dp"
+        android:layout_height="307dp"
+        android:layout_below="@+id/automatsSpinner"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginRight="82dp"
+        android:layout_marginBottom="96dp"
+        android:textColor="#E900154A"
+        android:textSize="18sp"
+        app:fontFamily="sans-serif-condensed-light" />
+
+</RelativeLayout>
