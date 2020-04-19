@@ -197,30 +197,73 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         String s = format("%02d:%02d", hourOfDay, minute);
         timePickerButton.setText(s);
         listAdapter.clear();
-        listAdapter.notifyDataSetChanged();
+
         if(locationSpinner.getSelectedItem().equals("Eesti")){
-            listAdapter.clear();
             for (automaton a : automatonList){
-                weekdayAdapter.weekDay b = new weekdayAdapter.weekDay(0, "temp");
-                b = (weekdayAdapter.weekDay) weekDaySpinner.getSelectedItem();
+                System.out.println(a.country);
                 if ((a.country.equals("EE")) && (a.availability.contains(weekDaySpinner.getSelectedItem().toString()))){
-                    listAdapter.add(a);
-                    listAdapter.notifyDataSetChanged();
+                    String[] splitAvailability = a.availability.split(";");
+                    if (splitAvailability.length > 1) {
+                        switch (weekDaySpinner.getSelectedItem().toString()) {
+                            case ("ma"):
+                                listAdapter.add(a);
+                                listAdapter.notifyDataSetChanged();
+                                break;
+                            case ("ti"):
+                                if (splitAvailability[1].equals(s)) {
+                                    listAdapter.add(a);
+                                    listAdapter.notifyDataSetChanged();
+                                }
+                                break;
+                            case ("ke"):
+                                if (splitAvailability[2].equals(s)) {
+                                    listAdapter.add(a);
+                                    listAdapter.notifyDataSetChanged();
+                                }
+                                break;
+                            case ("to"):
+                                if (splitAvailability[3].equals(s)) {
+                                    listAdapter.add(a);
+                                    listAdapter.notifyDataSetChanged();
+                                }
+                                break;
+                            case ("pe"):
+                                if (splitAvailability[4].equals(s)) {
+                                    listAdapter.add(a);
+                                    listAdapter.notifyDataSetChanged();
+                                }
+                                break;
+                            case ("la"):
+                                if (splitAvailability[5].equals(s)) {
+                                    listAdapter.add(a);
+                                    listAdapter.notifyDataSetChanged();
+                                }
+                                break;
+                            case ("su"):
+                                if (splitAvailability[6].equals(s)) {
+                                    listAdapter.add(a);
+                                    listAdapter.notifyDataSetChanged();
+                                }
+                            case ("kaikki"):
+                                listAdapter.add(a);
+                                listAdapter.notifyDataSetChanged();
+                                break;
+                            default:
+                                throw new IllegalStateException("Unexpected value: " + weekDaySpinner.getSelectedItem().toString());
+                        }
+                    }
                 }
             }
         }
-        else if(locationSpinner.getSelectedItem().equals("All")){
-            listAdapter.clear();
+        else if(locationSpinner.getSelectedItem().equals("Kaikki")){
             for (automaton a : automatonList){
-                weekdayAdapter.weekDay b = new weekdayAdapter.weekDay(0, "temp");
-                b = (weekdayAdapter.weekDay) weekDaySpinner.getSelectedItem();
                 if ((a.country.equals("EE")) && (a.availability.contains(weekDaySpinner.getSelectedItem().toString()))){
                     String[] splitAvailability = a.availability.split(";");
                     if (splitAvailability.length > 1){
                         switch (weekDaySpinner.getSelectedItem().toString()){
                             case ("ma"):
-                                listAdapter.add(a);
-                                listAdapter.notifyDataSetChanged();
+                                    listAdapter.add(a);
+                                    listAdapter.notifyDataSetChanged();
                                 break;
                             case ("ti"):
                                 if (splitAvailability[1].equals(s)){
@@ -247,10 +290,17 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
                                 }
                                 break;
                             case ("la"):
-                                listAdapter.add(a);
-                                listAdapter.notifyDataSetChanged();
+                                if (splitAvailability[5].equals(s)){
+                                    listAdapter.add(a);
+                                    listAdapter.notifyDataSetChanged();
+                                }
                                 break;
                             case ("su"):
+                                if (splitAvailability[6].equals(s)){
+                                    listAdapter.add(a);
+                                    listAdapter.notifyDataSetChanged();
+                                }
+                            case ("kaikki"):
                                 listAdapter.add(a);
                                 listAdapter.notifyDataSetChanged();
                                 break;
@@ -373,11 +423,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
                             }
                         }
                     }
-
-
-
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (SAXException e) {
@@ -390,37 +436,6 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
             @Override
             public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
                 return new TimePickerDialog(getActivity(), (TimePickerDialog.OnTimeSetListener) getActivity(), 12,00, DateFormat.is24HourFormat(getActivity()));
-            }
-        }
-        public void readFile(View v) {
-            try {
-                InputStream inS = context.openFileInput("testi.txt");
-
-                BufferedReader br = new BufferedReader(new InputStreamReader(inS));
-                String str = "";
-                while ((str = br.readLine()) != null) {
-
-                }
-                inS.close();
-            } catch (IOException e) {
-                Log.e("IOException", "Virhe syötteessä");
-            } finally {
-                System.out.println("Luettu");
-            }
-
-        }
-
-        public void writeFile(View v) {
-            try {
-                OutputStreamWriter owS = new OutputStreamWriter(context.openFileOutput("testi.txt", Context.MODE_PRIVATE));
-                String str = "";
-
-                owS.write(str);
-                owS.close();
-            } catch (IOException e) {
-                Log.e("IOException", "Virhe syötteessä");
-            } finally {
-                System.out.println("Kirjoitettu");
             }
         }
 }
