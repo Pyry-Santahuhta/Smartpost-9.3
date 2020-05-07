@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
                 }
             }
         }
-        else if(locationSpinner.getSelectedItem().equals("Kaikki")){
+        else if(locationSpinner.getSelectedItem().equals("Kaikki ")){
             for (automaton a : automatonList){
                 if ((a.country.equals("EE")) && (a.availability.contains(weekDaySpinner.getSelectedItem().toString()))){
                     String[] splitAvailability = a.availability.split(";");
